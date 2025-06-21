@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Layout from './components/Layout';
 import Home from './pages/Home';
+import LandingPage from './pages/LandingPage';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
@@ -15,10 +15,9 @@ const App = () => {
   return (
     <CartProvider>
       <Router>
-        <Header />
-        <main>
+        <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
@@ -26,8 +25,7 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
-        </main>
-        <Footer />
+        </Layout>
       </Router>
     </CartProvider>
   );
