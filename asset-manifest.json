@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PerfumeSite/static/css/main.57423916.css",
-    "main.js": "/PerfumeSite/static/js/main.ec027c11.js",
+    "main.css": "/PerfumeSite/static/css/main.90ecd19e.css",
+    "main.js": "/PerfumeSite/static/js/main.952d70ee.js",
     "static/media/playfair-display-latin-400-normal.woff": "/PerfumeSite/static/media/playfair-display-latin-400-normal.fcb833e68b96e60ba718.woff",
     "static/media/playfair-display-latin-400-normal.woff2": "/PerfumeSite/static/media/playfair-display-latin-400-normal.b62b7a3c7bf50278e98f.woff2",
     "static/media/playfair-display-latin-ext-400-normal.woff": "/PerfumeSite/static/media/playfair-display-latin-ext-400-normal.8af2d7044de74834ff78.woff",
@@ -11,11 +11,11 @@
     "static/media/playfair-display-vietnamese-400-normal.woff": "/PerfumeSite/static/media/playfair-display-vietnamese-400-normal.d45ab2750440282037f2.woff",
     "static/media/playfair-display-vietnamese-400-normal.woff2": "/PerfumeSite/static/media/playfair-display-vietnamese-400-normal.7506359a0cc8a53ebcc8.woff2",
     "index.html": "/PerfumeSite/index.html",
-    "main.57423916.css.map": "/PerfumeSite/static/css/main.57423916.css.map",
-    "main.ec027c11.js.map": "/PerfumeSite/static/js/main.ec027c11.js.map"
+    "main.90ecd19e.css.map": "/PerfumeSite/static/css/main.90ecd19e.css.map",
+    "main.952d70ee.js.map": "/PerfumeSite/static/js/main.952d70ee.js.map"
   },
   "entrypoints": [
-    "static/css/main.57423916.css",
-    "static/js/main.ec027c11.js"
+    "static/css/main.90ecd19e.css",
+    "static/js/main.952d70ee.js"
   ]
 }
