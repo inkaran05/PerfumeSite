@@ -29,10 +29,10 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Welcome to PerfumeSite</h1>
-      <h2>Featured Perfumes</h2>
-      <div className="product-list">
+    <div className="container mx-auto px-6 py-10">
+      <h1 className="text-4xl font-serif font-bold mb-6 text-center text-gray-900">Welcome to PerfumeSite</h1>
+      <h2 className="text-2xl font-serif font-semibold mb-8 text-center text-pink-600">Featured Perfumes</h2>
+      <div className="flex flex-wrap justify-center">
         {featuredProducts.map(product => (
           <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
         ))}

@@ -30,12 +30,25 @@ const ProductDetail = () => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <img src={product.image} alt={product.name} width="300" height="300" />
-      <p>{product.description}</p>
-      <p>Price: ${product.price.toFixed(2)}</p>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+    <div className="container mx-auto px-6 py-10 max-w-4xl">
+      <div className="flex flex-col md:flex-row items-center md:items-start">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full md:w-1/2 rounded-lg shadow-lg mb-6 md:mb-0"
+        />
+        <div className="md:ml-10">
+          <h1 className="text-4xl font-serif font-bold mb-4">{product.name}</h1>
+          <p className="text-pink-600 text-2xl font-bold mb-4">${product.price.toFixed(2)}</p>
+          <p className="text-gray-700 mb-6">{product.description}</p>
+          <button
+            onClick={handleAddToCart}
+            className="bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600 transition-colors duration-300"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

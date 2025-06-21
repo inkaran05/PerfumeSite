@@ -5,7 +5,7 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from backend or static data
+    // Fetch products from API or static data
     const fetchProducts = async () => {
       // Placeholder static data
       const data = [
@@ -13,22 +13,21 @@ const Shop = () => {
         { id: '2', name: 'Ocean Breeze', price: 59.99, image: '/images/ocean-breeze.jpg' },
         { id: '3', name: 'Mystic Amber', price: 69.99, image: '/images/mystic-amber.jpg' },
         { id: '4', name: 'Citrus Splash', price: 39.99, image: '/images/citrus-splash.jpg' },
+        { id: '5', name: 'Vanilla Dream', price: 54.99, image: '/images/vanilla-dream.jpg' },
       ];
       setProducts(data);
     };
-
     fetchProducts();
   }, []);
 
   const handleAddToCart = (product) => {
-    // To be implemented with context
     console.log('Add to cart:', product);
   };
 
   return (
-    <div>
-      <h1>Shop Perfumes</h1>
-      <div className="product-list">
+    <div className="container mx-auto px-6 py-10">
+      <h1 className="text-4xl font-serif font-bold mb-6 text-center text-gray-900">Shop All Perfumes</h1>
+      <div className="flex flex-wrap justify-center">
         {products.map(product => (
           <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
         ))}
