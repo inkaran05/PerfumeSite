@@ -14,7 +14,7 @@ import Admin from './pages/Admin';
 const App = () => {
   return (
     <CartProvider>
-      <Router>
+      <Router basename="/PerfumeSite">
         <Layout>
           <Routes>
             <Route path="/" element={<LandingPage />} />
