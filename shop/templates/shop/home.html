@@ -1,0 +1,76 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="text-5xl font-playfair font-bold mb-4">Welcome to Aroma Wink</h1>
+        <p class="text-lg text-gray-700 mb-8">Discover your signature scent with our exclusive collection of timeless fragrances crafted with passion and precision.</p>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center mb-12">
+        <div class="bg-white bg-opacity-70 backdrop-blur-sm p-8 rounded-lg md:max-w-md text-center">
+            <h2 class="text-4xl md:text-6xl font-playfair font-bold text-gray-900 leading-tight">Discover Your Signature Scent</h2>
+            <p class="mt-4 text-lg text-gray-700">Timeless fragrances crafted with passion and precision.</p>
+            <button class="mt-8 px-8 py-3 bg-pink-800 text-white font-semibold rounded-full hover:bg-pink-900 transition-transform transform hover:scale-105">
+                Explore Collection
+            </button>
+        </div>
+    </div>
+
+    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-center mb-12">Featured Collection</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {% for perfume in featured_perfumes %}
+            <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden group">
+                <div class="relative">
+                    <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" class="w-full h-80 object-cover group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="{% url 'product_detail' perfume.pk %}" class="px-6 py-2 bg-white text-black font-semibold rounded-full">Quick View</a>
+                    </div>
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-semibold font-playfair">{{ perfume.name }}</h3>
+                    <p class="text-gray-600 mt-1">{{ perfume.category.name }}</p>
+                    <p class="text-lg font-bold mt-2">${{ perfume.price }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <p>No featured perfumes available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Shop by Category Section -->
+    <section id="shop" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-playfair font-bold text-center mb-12">Shop by Category</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                {% for category in categories %}
+                    <div class="relative rounded-lg overflow-hidden group">
+                        <img src="https://placehold.co/400x400/f5d0d9/ffffff?text={{ category.name }}" alt="{{ category.name }}" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-white text-3xl font-playfair font-bold">{{ category.name }}</h3>
+                        </div>
+                        <a href="{% url 'product_list' %}?category={{ category.slug }}" class="absolute inset-0"></a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section id="new-arrivals" class="py-16 md:py-24 bg-pink-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x700/f0e8e6/333333?text=New+Arrival" alt="New Arrival Perfume" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-playfair font-bold">Introducing 'Midnight Garden'</h2>
+                    <p class="mt-4 text-lg text-gray-600">Our latest creation. A captivating blend of jasmine, tuberose, and a hint of dark chocolate. Experience the allure of a secret garden at midnight.</p>
+                    <button class="mt-8 px-8 py-3 bg-gray-800 text-white font-semibold rounded-full hover:bg-gray-900 transition-transform transform hover:scale-105">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
