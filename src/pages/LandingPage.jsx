@@ -4,21 +4,16 @@ import "@fontsource/playfair-display";
 
 export default function LandingPage() {
   return (
-    <div className="relative h-screen w-full text-white font-sans overflow-hidden bg-gradient-to-br from-pink-700 via-pink-900 to-purple-900">
+    <div className="relative h-screen w-full font-sans overflow-hidden bg-[#121212] text-[#e6e1dc]">
 
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-30 blur-sm z-0"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="https://videos.pexels.com/video-files/3130813/3130813-hd_1280_720_25fps.mp4" type="video/mp4" />
-      </video>
+      {/* Background Image */}
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-80 z-0"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80')" }}
+      />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
+      <div className="absolute inset-0 bg-black bg-opacity-70 z-10" />
 
       {/* Hero Content */}
       <motion.div
@@ -30,13 +25,13 @@ export default function LandingPage() {
         <h1 className="text-6xl md:text-8xl font-[Playfair_Display] font-extrabold tracking-wide mb-6 drop-shadow-lg">
           Unveil Your Signature
         </h1>
-        <p className="text-2xl md:text-3xl text-pink-200 mb-10 max-w-3xl drop-shadow-md">
+        <p className="text-2xl md:text-3xl text-[#c5a880] mb-10 max-w-3xl drop-shadow-md">
           Luxury fragrances crafted to elevate your presence.
         </p>
         <motion.a
           href="/shop"
           whileHover={{ scale: 1.05 }}
-          className="bg-pink-100 text-pink-900 px-10 py-4 rounded-full font-semibold shadow-xl hover:bg-pink-200 transition"
+          className="border border-[#c5a880] text-[#c5a880] px-10 py-4 rounded-full font-semibold shadow-xl hover:bg-[#c5a880] hover:text-[#121212] transition"
         >
           Discover Scents
         </motion.a>
