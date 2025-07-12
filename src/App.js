@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -14,7 +14,7 @@ import Admin from './pages/Admin';
 const App = () => {
   return (
     <CartProvider>
-      <Router basename="/PerfumeSite">
+      <Router>
         <Layout>
           <Routes>
             <Route path="/" element={<LandingPage />} />
