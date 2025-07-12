@@ -1,40 +1,55 @@
-import React, { useState } from 'react';
-import { auth } from '../firebase/config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
 
-const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+export default function Signup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError(null);
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/');
-    } catch (err) {
-      setError(err.message);
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
     }
+    // Mock signup action
+    alert("Signup functionality is disabled in mock site.");
   };
 
   return (
-    <div>
-      <h1>Signup</h1>
-      {error && <p style={{color: 'red'}}>{error}</p>}
+    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded shadow">
+      <h2 className="text-2xl font-semibold mb-6 text-center">Signup</h2>
       <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-        <br />
-        <label>Password:</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-        <br />
-        <button type="submit">Signup</button>
+        <label className="block mb-2 font-medium">Email</label>
+        <input
+          type="email"
+          className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label className="block mb-2 font-medium">Password</label>
+        <input
+          type="password"
+          className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label className="block mb-2 font-medium">Confirm Password</label>
+        <input
+          type="password"
+          className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition-colors"
+        >
+          Signup
+        </button>
       </form>
     </div>
   );
-};
-
-export default Signup;
+}
